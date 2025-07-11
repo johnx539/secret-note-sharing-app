@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Secret Link</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background: #f4f6f8;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .main {
+            background: #ffffff;
+            padding: 30px 40px;
+            border-radius: 12px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+            width: 90%;
+            max-width: 600px;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 24px;
+            margin-bottom: 16px;
+            color: #333;
+        }
+
+        .link-box {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #f0f0f0;
+            padding: 12px 16px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            word-break: break-all;
+        }
+
+        .link-text {
+            color: #007bff;
+            font-weight: 500;
+            flex: 1;
+            margin-right: 10px;
+        }
+
+        button {
+            background: #007bff;
+            color: white;
+            padding: 10px 16px;
+            font-size: 14px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background 0.3s ease-in-out;
+        }
+
+        button:hover {
+            background: #0056b3;
+        }
+
+        .copy-message {
+            font-size: 14px;
+            color: green;
+            margin-top: 10px;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="main">
+        <h1>🔗 Your Secret Link</h1>
+        <div class="link-box">
+            <span class="link-text" id="secretLink">{{note_link}}</span>
+            <button onclick="copyLink()">Copy</button>
+        </div>
+        <p class="copy-message" id="copyMsg">Link copied to clipboard!</p>
+    </div>
+
+    <script>
+        function copyLink() {
+            const linkText = document.getElementById("secretLink").textContent;
+            navigator.clipboard.writeText(linkText).then(() => {
+                document.getElementById("copyMsg").style.display = "block";
+                setTimeout(() => {
+                    document.getElementById("copyMsg").style.display = "none";
+                }, 2000);
+            });
+        }
+    </script>
+</body>
+</html>

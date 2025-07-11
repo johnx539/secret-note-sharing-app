@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Secret Note</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background: #f4f6f8;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .main {
+            background: #ffffff;
+            padding: 30px 40px;
+            border-radius: 12px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+            width: 90%;
+            max-width: 600px;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 24px;
+            margin-bottom: 16px;
+            color: #333;
+        }
+
+        .note-box {
+            width: 100%;
+            padding: 16px;
+            font-size: 16px;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+            background-color: #fefefe;
+            margin-bottom: 20px;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+            color: #333;
+            text-align: left;
+        }
+
+        .warning {
+            font-size: 14px;
+            color: #ff4d4d;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="main">
+        <h1>📜 Secret Note</h1>
+
+        {% if check_message == "not_exist" %}
+            <div class="note-box">
+                ❌ No trace remains. Either this secret was already viewed or it never existed
+            </div>
+            <p class="warning">⚠️ Nothing to show here.</p>
+        {% else %}
+            <div class="note-box">
+                {{ secret_note }}
+            </div>
+            <p class="warning">🔥 Your eyes have seen it. Now it’s gone for good</p>
+        {% endif %}
+        
+    </div>
+</body>
+</html>

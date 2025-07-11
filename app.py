@@ -14,7 +14,7 @@ def home():
         secret_id = str(uuid.uuid4())  # Convert UUID to string
         secrets[secret_id] = secret_note  # Now key is also a string
 
-        note_link = "http://127.0.0.1:5000/note/" + secret_id
+        note_link = "https://secret-note-sharing-app.vercel.app/note/" + secret_id
 
         return render_template("share_note.html",note_link = note_link)
 
